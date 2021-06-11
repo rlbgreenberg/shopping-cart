@@ -67,10 +67,13 @@ for selected_id in selected_ids:
     total_price = total_price + matching_product["price"]
     print(matching_product["name"], matching_product["price"])
 
+tax_amt = total_price * 0.08875
+final_price = total_price + tax_amt
+
 print("---------------")
 print("SUBTOTAL: " + str(total_price))
-print("TAX:")
-print("TOTAL:")
+print("TAX: " + str(tax_amt))
+print("TOTAL: " + str(final_price))
 print("---------------")
 print("THANKS, PLEASE COME AGAIN!")
 print("---------------")
