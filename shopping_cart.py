@@ -53,11 +53,19 @@ while True:
 #product lookups
 #info display
 
+from datetime import datetime
+
+# datetime object containing current date and time
+now = datetime.now()
+
+# dd/mm/YY H:M:S
+dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
+
 print("---------------")
 print("RACHEL'S GROCERY")
 print("WWW.RACHELSGROCERY.COM")
 print("---------------")
-print("CHECK OUT AT DATE TIME")
+print("CHECK OUT AT: ", dt_string)
 print("---------------")
 print("SELECTED PRODUCTS:")
 
@@ -66,6 +74,7 @@ for selected_id in selected_ids:
     matching_product = matching_products[0]
     total_price = total_price + matching_product["price"]
     print(matching_product["name"], matching_product["price"])
+
 
 tax_amt = total_price * 0.08875
 final_price = total_price + tax_amt
