@@ -62,28 +62,37 @@ now = datetime.now()
 dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
 
 print("---------------")
+print("     ")
 print("RACHEL'S GROCERY")
 print("WWW.RACHELSGROCERY.COM")
+print("     ")
 print("---------------")
+print("     ")
 print("CHECK OUT AT: ", dt_string)
+print("     ")
 print("---------------")
+print("     ")
 print("SELECTED PRODUCTS:")
 
 for selected_id in selected_ids:
     matching_products = [p for p in products if str(p["id"]) == str(selected_id)]
     matching_product = matching_products[0]
     total_price = total_price + matching_product["price"]
-    print(matching_product["name"], matching_product["price"])
+    print(matching_product["name"], to_usd(matching_product["price"]))
 
 
 tax_amt = total_price * 0.08875
 final_price = total_price + tax_amt
 
 print("---------------")
-print("SUBTOTAL: " + str(total_price))
-print("TAX: " + str(tax_amt))
-print("TOTAL: " + str(final_price))
+print("     ")
+print("SUBTOTAL: " + to_usd(total_price))
+print("TAX: " + to_usd(tax_amt))
+print("TOTAL: " + to_usd(final_price))
+print("     ")
 print("---------------")
+print("     ")
 print("THANKS, PLEASE COME AGAIN!")
+print("     ")
 print("---------------")
 
