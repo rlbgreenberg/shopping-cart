@@ -1,5 +1,6 @@
 # shopping_cart.py
 
+# product setup info
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
     {"id":2, "name": "All-Seasons Salt", "department": "pantry", "aisle": "spices seasonings", "price": 4.99},
@@ -23,43 +24,19 @@ products = [
     {"id":20, "name": "Pomegranate Cranberry & Aloe Vera Enrich Drink", "department": "beverages", "aisle": "juice nectars", "price": 4.25}
 ] # based on data from Instacart: https://www.instacart.com/datasets/grocery-shopping-2017
 
-
-def to_usd(my_price):
-    """
-    Converts a numeric value to usd-formatted string, for printing and display purposes.
-
-    Param: my_price (int or float) like 4000.444444
-
-    Example: to_usd(4000.444444)
-
-    Returns: $4,000.44
-    """
-    return f"${my_price:,.2f}" #> $12,000.71
-
-
-# TODO: write some Python code here to produce the desired output
-
-print(products)
-
+#info capture
 # 1) capture product ids until we're done
 # (use infinite while loop)
-selected_ids = []
-while True:
-    selected_id = input("Please select / scan a valid product id: ")
-    if selected_id.upper() == "DONE":
-        break
-    else:
-        selected_ids.append(selected_id)
-    print(selected_id)
-print("WE HAVE REACHED THE END OF THE LOOP")
-print(selected_ids)
-
 # 2) Perform product lookups to determine what the product's name and price are
 #selected_ids = ["1","2","3","2","1"]
-for selected_id in selected_ids:
-    print(selected_id)
-    # lookup the corresponding product!
+# lookup the corresponding product!
     # or maybe display the selected product's name and price
-    matching_products = [p for p in products if str(p["id"]) == str(selected_id)]
-    matching_product = matching_products[0]
-    print(matching_product["name"], matching_product["price"])
+
+while True:
+    selected_id = input("Please input a product identifier: ")
+    if selected_id == "DONE":
+        break
+    else:
+        matching_products = [p for p in products if str(p["id"]) == str(selected_id)]
+        matching_product = matching_products[0]
+        print("SELECTED PRODUCT: " + matching_product["name"] + " " + str(matching_product["price"])
